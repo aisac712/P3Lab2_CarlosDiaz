@@ -91,31 +91,39 @@ void funcionExponencial(double lim, double x){
 
 //TEERCER EJERCICIO
 void triangular(int n){
+    int temp[n];                                                //matriz anterior a la q se imprime
     for (int i=1; i<=n; i++){
-        int fila[i];
+        int fila[i];                                            
         
-        //para rellenar de prueba
-        /*if(i==1 || i==2){
+        //para rellenar
+        if(i==1 || i==2){                                       //estas dos filas están formadas por 1 netamente
             for (int j=0; j<i; j++){
                 fila[j] = 1;
             }
         } else {
             for (int j=0; j<i; j++){
-                if(j==1 || j==(i-1)){
+                if(j==0 || j==(i-1)){                          //en la 1 y última siempre va 1
                     fila[j] = 1;
+                } else {
+                    fila[j] = temp[j-1] + temp[j];
                 }
-                if(j==2 || j==(i-2)){
-                    fila[j] = i+1;
-                }
+                
             }
-        }*/
-        //para rellenar
-        for (int j=0; j<i; j++){
-            fila[j] = 1;
         }
         
-        //para imprimir
+        temp[i];
+        for (int j=0; j<i; j++){                                //rellenamos el arreglo temporal que se encarga de guardar el arreglo anterior
+                temp[j] = fila[j];
+            }
+        
+        /*//para imprimir matriz temporal
         for (int j=0; j<i; j++){
+            cout << temp[j] << " ";
+        }
+        cout << "" << endl;*/
+        
+        //para imprimir
+       for (int j=0; j<i; j++){
             cout << fila[j] << " ";
         }
         cout << "" << endl;
@@ -156,13 +164,13 @@ int main(int argc, char** argv) {
             } case 2: {
                 double x;
                 cout << "Ingresa x para hacer el cálculo: ";
-                cin  >> x;
-                
-                funcionExponencial(30, x);
+                cin  >> x;                                                      //funciona con negativos
+                int lim = 30;                                                   //modificar a gussto
+                funcionExponencial(lim, x);
                 break;
             } case 3: {
                 int n;
-                cout << "Ingresa la cantidad de filas n: ";
+                cout << "Ingresa la cantidad de filas bn: ";
                 cin  >> n;
                 
                 triangular(n);
